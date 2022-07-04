@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'izo.apps.IzoConfig'
+    'ckeditor',
+    'ckeditor_uploader',
+    'rest_framework',
+    'corsheaders',
+    'izo.apps.IzoConfig',
 ]
 
 MIDDLEWARE = [
@@ -45,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -134,5 +140,17 @@ MEDIA_URL = 'izostudio/media/'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        #'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8080",
+    "http://127.0.0.1:8000"
+
+]
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
