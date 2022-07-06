@@ -2,7 +2,10 @@
 
 
 {% block content %}
-<h1> Hello</h1>
+{% for s in services%}
+<h1>{{s.name}}</h1>
+<h2>{{s.slug}}</h2>
+{% endfor %}
 
 {% endblock content %}
 

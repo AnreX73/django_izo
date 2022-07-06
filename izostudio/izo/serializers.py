@@ -8,6 +8,7 @@ class ServicesSerializer(serializers.ModelSerializer):
         model = Services
         fields = '__all__'
 
+
 class NavSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nav
