@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -17,14 +18,14 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100, db_index=True, verbose_name='Объявление')
-    content = models.TextField(blank=True, verbose_name='Текст объявления')
-    is_published = models.BooleanField(default=True, verbose_name='Публикация')
+    content = RichTextField(blank=True, verbose_name='Текст объявления')
+    is_published = models.BooleanField(default=False, verbose_name='Публикация')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'Объявление'
+        verbose_name = 'Объявление. Опубликовано может быть только одно !'
         verbose_name_plural = '6.Объявление'
         ordering = ['id']
 
@@ -40,6 +41,9 @@ class Nav(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('show_service', kwargs={'service_slug': self.slug})
+
     class Meta:
         verbose_name = 'элемент навигации'
         verbose_name_plural = '5.Элементы навигации'
@@ -50,8 +54,8 @@ class Contacts(models.Model):
     title = models.CharField(max_length=100, db_index=True, verbose_name='заголовок')
     slug = models.SlugField(unique=True, max_length=100, db_index=True, verbose_name='URL')
     image = models.ImageField(upload_to="images", blank=True, verbose_name='Изображение')
-    annotations1 = models.TextField(blank=True, verbose_name='первое значение')
-    annotations2 = models.TextField(blank=True, verbose_name='второе значение ')
+    annotations1 = RichTextField(blank=True, verbose_name='информация')
+    annotations2 = models.TextField(blank=True, verbose_name='ссылка,если есть')
 
     def __str__(self):
         return self.title

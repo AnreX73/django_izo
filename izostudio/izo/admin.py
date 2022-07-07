@@ -83,8 +83,16 @@ class NavAdmin(admin.ModelAdmin):
 
     gethtmlPhoto.short_description = 'миниатюра'
 
+# class ContactsAdminForm(forms.ModelForm):
+#     annotation = forms.CharField(label='первое значение', required=False, widget=CKEditorUploadingWidget())
+
+#     class Meta:
+#         model = Contacts
+#         fields = '__all__'
+
 
 class ContactsAdmin(admin.ModelAdmin):
+    # form = ContactsAdminForm
     list_display = ('id', 'title', 'gethtmlPhoto', 'annotations1', 'annotations2')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
@@ -131,4 +139,4 @@ admin.site.register(Prices, PricesAdmin)
 admin.site.register(Extra, ExtraAdmin)
 admin.site.register(Contacts, ContactsAdmin)
 
-admin.site.site_header = 'СМАРТ ФОТО'
+admin.site.site_header = 'IZO STUDIO'

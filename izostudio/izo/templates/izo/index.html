@@ -1,11 +1,11 @@
 {% extends 'izo/base.html' %}
 
+{% load izo_tags %}
+
+
 
 {% block content %}
-{% for s in services%}
-<h1>{{s.name}}</h1>
-<h2>{{s.slug}}</h2>
-{% endfor %}
+{% show_nav %}
 
 {% endblock content %}
 

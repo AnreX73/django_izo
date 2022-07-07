@@ -7,11 +7,9 @@ from izo.serializers import *
 def index(request):
     context = {
         'title': 'izo studio',
-        'services': Category.objects.all(),
-        # 'souvenirs': Services.objects.filter(cat_id=2),
-        # 'services_title':'фотоуслуги',
-        # 'souvenirs_title':'фотосувениры',
-        # 'posts': Post.objects.get(id=1),
+        'services': Services.objects.filter(cat_id=1),
+        'souvenirs': Services.objects.filter(cat_id=2),
+        'posts': Post.objects.filter(is_published=True),
     }
     return render(request, 'izo/index.html', context=context)
 
@@ -19,6 +17,7 @@ def index(request):
 class ServicesApiView(generics.ListAPIView):
     queryset = Services.objects.all()
     serializer_class = ServicesSerializer
+
 
 class NavApiView(generics.ListAPIView):
     queryset = Nav.objects.all()
