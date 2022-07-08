@@ -24,8 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('izo.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('api/v1/serviceslist/', ServicesApiView.as_view()),
-    path('api/v1/navlist/', NavApiView.as_view()),
+    
 ]
 
 

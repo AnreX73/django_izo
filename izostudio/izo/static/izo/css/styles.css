@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+/*обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align:center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+/*конец обнуление*/
+
+body {
+font-family: 'Oswald', sans-serif;
+height:100%;
+}
+h2{
+  font-size: 2rem;
+}
+
+/*шапка сайта*/
+
+.header-fixer{
+  position: fixed;
+  width: 100%;
+}
+.psev{
+  margin-top: -20px;
+  position: fixed;
+  width: 100%;
+  height: 220px;
+  z-index: 9;
+  background-color: white;
+}
+.psev2{
+  margin-top: -20px; 
+  width: 100%;
+  height: 250px;
+  z-index: 9;
+  background-color:white;
+}
+.header-container{
+  
+  background-color: rgba(150, 150, 150, 0.5);
+  z-index: 10;
+}
+.header-wrapper{
+ 
+  margin: 0 auto;
+  max-width: 1366px;
+  display: grid;
+  grid-template-columns:repeat(3,1fr);
+  padding: 20px;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-items: center;
+  z-index: 20;
+}
+
+.header_adress_item{
+  text-align: center;
+  line-height: 1.3;
+  z-index: 21;
+}
+.header_adress_link{
+  font-size: 1.2rem;
+  color: rgb(19, 18, 18,0.5);
+  text-align: center;
+  z-index: 22;
+}
+
+.header-logo-wrapper{
+  text-align: center;
+  z-index: 23;
+}
+
+.header-logo-annotation{
+  color: rgb(19, 18, 18,0.5);
+}
+.header_item{
+  text-align: center;
+}
+
+.header-image{
+  max-width: 200px;
+}
+.header-contacts-item{
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+ 
+}
+.header-contacts-image{
+  z-index: 24;
+  max-width: 5px;
+  height: auto;
+  justify-self: flex-end;
+  padding-right: 5px;
+}
+.header-contacts-text{
+  z-index: 24;
+  justify-self: flex-start;
+
+}
+
+.header-contacts-item{
+  text-align: center;
+  line-height: 1.3;
+}
+
+.header-contacts-image{
+  max-width: 30px;
+}
+
+/* конец шапка сайта*/
+
+/* навигация*/
+.nav-wrapper{
+  margin: 0 auto;
+  display: flex;
+  font-size: 1.5rem;
+  max-width: 60vw;
+  /* background-color: aqua; */
+  justify-content:space-around;
+  border-bottom: 3px solid rgb(245, 11, 11, 0.1);
+  padding: 10px; 
+}
+/* навигация*/
+
+.general-wrapper{
+  max-width: 1366px;
+  margin: 20px auto;
+}
+
+.main-menu-wrapper{
+  text-align: center;
+  border-bottom: 3px solid rgb(245, 11, 11, 0.1);
+}
+.main-menu-items{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding: 15px;
+  font-size: 1.3rem;
+}
+.main-menu-image{
+  max-width: 120px;
+}
+figure{
+  padding: 10px;
+}
+figcaption{
+  padding: 10px;
+}
+
+.services-pages{
+  margin-top:10px;
+  margin-bottom:10px;
+  text-align: center;
+  border-bottom: 3px solid rgb(245, 11, 11, 0.1);
+  
+}
+.service-page{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  justify-items: center;
+
+}
+.service-image{
+  max-width: 280px;
+}
+.service-description{
+  font-size: 1.5rem;
+  text-align: left;
+}

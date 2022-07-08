@@ -2,10 +2,61 @@
 
 {% load izo_tags %}
 
-
-
 {% block content %}
+
+<div class="header-fixer">
+{% show_header %}
 {% show_nav %}
+<div class="psev">44444</div>
+</div>
+
+<div class="general-wrapper">
+    <div class="main-menu-wrapper">
+        <h2>{{services_title.name}}</h2>
+        <div class="main-menu-items">
+             {% for serv in services %}
+             {% if serv.is_published %}
+            <figure> <img class="main-menu-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
+            <figcaption> {{serv.title}}</figcaption></figure>
+            {%endif%}
+            {%endfor%}
+        </div>
+
+        <h2>{{souvenirs_title.name}}</h2>
+        <div class="main-menu-items">
+             {% for serv in souvenirs %}
+             {% if serv.is_published %}
+            <figure> <img class="main-menu-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
+            <figcaption> {{serv.title}}</figcaption></figure>
+            {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+
+    <div class="items-pages-wrapper">
+        
+        <div class="services-pages">
+            <h2>{{services_title.name}}</h2>
+            <div class="service-page">
+                {% for serv in services %}
+                <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
+                <div class="service-description">{{serv.annotation|safe}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="services-pages">
+            <h2>{{souvenirs_title.name}}</h2>
+            <div class="service-page">
+                {% for serv in souvenirs %}
+                <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
+                <div class="service-description">{{serv.annotation|safe}}</div>
+                {% endfor %}   
+            </div>
+        </div>
+
+    </div> 
+</div>
 
 {% endblock content %}
 
