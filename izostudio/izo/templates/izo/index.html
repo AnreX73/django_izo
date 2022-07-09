@@ -7,7 +7,7 @@
 <div class="header-fixer">
 {% show_header %}
 {% show_nav %}
-<div class="psev">44444</div>
+
 </div>
 
 <div class="general-wrapper">
@@ -39,6 +39,7 @@
             <h2>{{services_title.name}}</h2>
             <div class="service-page">
                 {% for serv in services %}
+                <h3 class="service-title">{{serv.title}}</h3>
                 <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
                 <div class="service-description">{{serv.annotation|safe}}</div>
                 {% endfor %}
@@ -49,6 +50,7 @@
             <h2>{{souvenirs_title.name}}</h2>
             <div class="service-page">
                 {% for serv in souvenirs %}
+                <h3 class="service-title">{{serv.title}}  </h3>
                 <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
                 <div class="service-description">{{serv.annotation|safe}}</div>
                 {% endfor %}   
