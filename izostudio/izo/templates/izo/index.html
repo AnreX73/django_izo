@@ -3,15 +3,17 @@
 {% load izo_tags %}
 
 {% block content %}
-
+<a name={{main_link.annotations1}}>
 <div class="header-fixer">
 {% show_header %}
 {% show_nav %}
-
 </div>
+
+<div class="psevdo"></div>
 
 <div class="general-wrapper">
     <div class="main-menu-wrapper">
+        <a class="anchor"  name="{{services_title.name}}"></a>
         <h2>{{services_title.name}}</h2>
         <div class="main-menu-items">
              {% for serv in services %}
@@ -21,7 +23,7 @@
             {%endif%}
             {%endfor%}
         </div>
-
+        <a class="anchor"  name="{{souvenirs_title.name}}"></a>
         <h2>{{souvenirs_title.name}}</h2>
         <div class="main-menu-items">
              {% for serv in souvenirs %}
@@ -34,16 +36,23 @@
     </div>
 
     <div class="items-pages-wrapper">
-        
         <div class="services-pages">
             <h2>{{services_title.name}}</h2>
             <div class="service-page">
                 {% for serv in services %}
                 <h3 class="service-title">{{serv.title}}</h3>
-                <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
+               <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
                 <div class="service-description">{{serv.annotation|safe}}</div>
+                    {% for price in prices %}
+                        {% if price.service_id == serv.id%}
+
+                        <div class="price-info"><span class ="price-title">{{price.title}}</span>{{price.content|safe}}</div>
+                        {%endif%}
+                    {% endfor %}
                 {% endfor %}
+
             </div>
+
         </div>
         
         <div class="services-pages">

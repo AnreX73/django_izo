@@ -1,8 +1,10 @@
 <!--контейнер для шапки-->
-<div class="header-container">
+
+<div class="header-container" style=" background-color: rgb(250, 250, 250);">
 
 <!--контейнер для контента шапки-->
 <div class="header-wrapper">
+
 <!--блок с адресом и ссылкой на карту-->
     {% for header_adress_item in header_contacts %}
     {% if header_adress_item.title == 'адрес'%}
@@ -17,8 +19,10 @@
 <div class="header-logo-wrapper">
     {% for header_item in header %}
     {% if header_item.title == 'логотип'%}
+    <a href="#{{nav_item.annotations1}}">
     <div class="header_item"><img class="header-image" src="{{header_item.image.url}}" alt="{{header_item.title}}"/></div>
-    <span class="header-logo-annotation">{{header_item.annotations3}}</span>
+        <span class="header-logo-annotation">{{header_item.annotations3}}</span>
+    </a>
 </div>
 
     {% endif %}
