@@ -18,8 +18,8 @@
         <div class="main-menu-items">
              {% for serv in services %}
              {% if serv.is_published %}
-            <figure> <img class="main-menu-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
-            <figcaption> {{serv.title}}</figcaption></figure>
+             <a href="#{{serv.slug}}"><figure> <img class="main-menu-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
+            <figcaption> {{serv.title}}</figcaption></figure></a>
             {%endif%}
             {%endfor%}
         </div>
@@ -28,8 +28,8 @@
         <div class="main-menu-items">
              {% for serv in souvenirs %}
              {% if serv.is_published %}
-            <figure> <img class="main-menu-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
-            <figcaption> {{serv.title}}</figcaption></figure>
+            <a href="#{{serv.slug}}"><figure> <img class="main-menu-image" src="{{serv.menu_image.url}}" alt="{{serv.title}}" />
+            <figcaption> {{serv.title}}</figcaption></figure></a>
             {%endif%}
             {%endfor%}
         </div>
@@ -37,9 +37,11 @@
 
     <div class="items-pages-wrapper">
         <div class="services-pages">
+           
             <h2>{{services_title.name}}</h2>
             <div class="service-page">
                 {% for serv in services %}
+                <a class="anchor"  name="{{serv.slug}}"></a>
                 <h3 class="service-title">{{serv.title}}</h3>
                <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
                 <div class="service-description">{{serv.annotation|safe}}</div>
@@ -59,6 +61,7 @@
             <h2>{{souvenirs_title.name}}</h2>
             <div class="service-page">
                 {% for serv in souvenirs %}
+                <a class="anchor"  name="{{serv.slug}}"></a>
                 <h3 class="service-title">{{serv.title}}  </h3>
                 <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
                 <div class="service-description">{{serv.annotation|safe}}</div>
@@ -67,8 +70,37 @@
         </div>
 
     </div> 
-</div>
+    <a class="anchor"  name="{{anchor.annotations1}}"></a>
+    <div class="contacts-wrapper">
+        <div class="contacts-info">
+            <img class="contacts-logo" src="{{logo.image.url}}" alt="{{logo.title}}"/> 
 
+            {% for contact in contacts %}
+            {% if contact.is_published %}
+                <div class="contacts-info-item">
+                    {% if contact.image %}
+                    <img class="contacts-icon" src="{{contact.image.url}}" alt="{{contact.title}}"/>
+                    {% endif %}
+                    <div class="contact-info">{{contact.annotations1|safe}}</div>
+                </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+        <div class="contacts-map">
+             {% for contact in contacts %}
+            {% if contact.title == 'карта'%}
+        <div class="map">
+        {%autoescape off%}
+         <script {{contact.annotations2 }}></script>
+            {%endautoescape off%}
+</div>
+    {% endif %}
+{% endfor %}
+        </div>
+    </div>
+</div>
+<div style="text-align: center; padding-bottom: 20px;">сделано в smstudio</div>
 {% endblock content %}
 
 

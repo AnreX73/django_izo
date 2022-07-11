@@ -14,7 +14,7 @@ def show_nav():
 @register.inclusion_tag('izo/header.html')
 def show_header():
     header = Nav.objects.all()
-    header_contacts = Contacts.objects.all()
+    header_contacts = Contacts.objects.filter(is_header_published=True)
     return {"header": header,
             "header_contacts": header_contacts
             }

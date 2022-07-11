@@ -56,9 +56,14 @@ class Contacts(models.Model):
     image = models.ImageField(upload_to="images", blank=True, verbose_name='Изображение')
     annotations1 = RichTextField(blank=True, verbose_name='информация')
     annotations2 = models.TextField(blank=True, verbose_name='ссылка,если есть')
+    is_header_published = models.BooleanField(default=False, verbose_name='Публикация в шапке сайта')
+    is_published = models.BooleanField(default=False, verbose_name='Публикация в контактах, карты-не отмечать!!!')
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('show_service', kwargs={'service_slug': self.slug})
 
     class Meta:
         verbose_name = 'контакты '

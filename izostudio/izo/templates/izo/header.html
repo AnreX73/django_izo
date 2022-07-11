@@ -7,11 +7,13 @@
 
 <!--блок с адресом и ссылкой на карту-->
     {% for header_adress_item in header_contacts %}
+
     {% if header_adress_item.title == 'адрес'%}
     <div class="header_adress_item">{{header_adress_item.annotations1|safe}}
         <span class="header_adress_link">{{header_adress_item.annotations2|safe}}</span>
     </div>
     {% endif %}
+
     {% endfor %}
 <!-- конец блок с адресом и ссылкой на карту-->
 
@@ -32,13 +34,13 @@
 <!-- блок с контактами--> 
 <div class="header-contacts-wrapper">
 {% for header_contacts_item in header_contacts %}
+
 {% if header_contacts_item.title != 'адрес'%}
-{% if header_contacts_item.title != 'режим работы'%}
 <div class="header-contacts-item">
     <img class="header-contacts-image" src="{{header_contacts_item.image.url}}" alt="{{header_contacts_item.title}}"/>
     <span class="header-contacts-text">{{header_contacts_item.annotations1|safe}}</span>
 </div>
-{% endif %}
+
 {% endif %}
 {% endfor %}
 </div>

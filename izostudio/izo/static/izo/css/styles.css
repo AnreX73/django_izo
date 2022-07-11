@@ -111,13 +111,13 @@ color:black;
 a.anchor {
     display: block;
     position: relative;
-    top: -250px;
+    top: -240px;
     visibility: hidden;
 }
 table{
   border-collapse: separate;
   border-spacing: 3px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding-top: 5px;
   text-align: center;
 }
@@ -223,16 +223,19 @@ height:250px;
 width:100%;
 }
 /* навигация*/
+.nav-container{
+width: 100%;
+ background-color: #fff;
+}
 .nav-wrapper{
   margin: 0 auto;
   display: flex;
   font-size: 1.5rem;
   max-width: 70vw;
-  /* background-color: aqua; */
   justify-content:space-around;
   border-bottom: 3px solid rgb(245, 11, 11, 0.1);
   padding: 10px; 
-  background-color: #fff;
+
 }
 /* навигация*/
 
@@ -291,7 +294,50 @@ margin-top:20px;
   text-align: left;
   grid-column: 2 / span3;
 }
+@media (max-width: 1280px){
+.service-description{
+font-size: 1.3rem;
+}
+}
 
 .price-title{
 font-size:1.3rem;
+}
+
+
+.contacts-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  border-bottom: 3px solid rgb(245, 11, 11, 0.1);
+  padding: 15px;
+  line-height: 1.3;
+}
+
+.contacts-logo{
+  max-width: 120px;
+}
+
+.contacts-info-item{
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:15px;
+  align-items: center;
+  justify-items:center;
+  font-size: 1.5rem;
+ 
+ 
+}
+.contacts-icon{
+  justify-self: flex-end;
+  max-width: 30px;
+  height: auto;
+  
+}
+
+.contact-info{
+  justify-self: flex-start;
+  margin-left: 10px;
+  
 }

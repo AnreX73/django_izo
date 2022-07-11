@@ -83,6 +83,7 @@ class NavAdmin(admin.ModelAdmin):
 
     gethtmlPhoto.short_description = 'миниатюра'
 
+
 # class ContactsAdminForm(forms.ModelForm):
 #     annotation = forms.CharField(label='первое значение', required=False, widget=CKEditorUploadingWidget())
 
@@ -93,7 +94,8 @@ class NavAdmin(admin.ModelAdmin):
 
 class ContactsAdmin(admin.ModelAdmin):
     # form = ContactsAdminForm
-    list_display = ('id', 'title', 'gethtmlPhoto', 'annotations1', 'annotations2')
+    list_display = (
+    'id', 'title', 'gethtmlPhoto', 'is_header_published', 'is_published', 'annotations1', 'annotations2')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
