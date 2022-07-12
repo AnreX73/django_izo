@@ -10,7 +10,7 @@
 
     {% if header_adress_item.title == 'адрес'%}
     <div class="header_adress_item">{{header_adress_item.annotations1|safe}}
-        <span class="header_adress_link">{{header_adress_item.annotations2|safe}}</span>
+       <a href="#{{header_adress_item.title}}"> <span class="header_adress_link">{{header_adress_item.annotations2|safe}}</span></a>
     </div>
     {% endif %}
 

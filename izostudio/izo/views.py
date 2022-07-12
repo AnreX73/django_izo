@@ -15,6 +15,8 @@ def index(request):
         'main_link': Nav.objects.get(id=1),
         'prices': Prices.objects.all(),
         'contacts': Contacts.objects.all(),
+        'extra': Extra.objects.all(),
+        'posts': Post.objects.all(),
         'logo':Nav.objects.get(title = 'логотип'),
         'anchor':Nav.objects.get(title = 'ссылка на контакты'),
     }
