@@ -92,6 +92,13 @@
                 <h3 class="service-title">{{serv.title}}  </h3>
                 <img class="service-image" src="{{serv.page_image.url}}" alt="{{serv.title}}"/>
                 <div class="service-description">{{serv.annotation|safe}}</div>
+                {% for price in prices %}
+                        {% if price.service_id == serv.id%}
+                        <div class="price-info"><span class ="price-title">{{price.title}}</span>{{price.content|safe}}
+                            <span class ="price-extra-link js-open-modal" data="{{price.id}}">{{price.extraLink}}</span></div>
+                        
+                        {%endif%}
+                    {% endfor %}
                 {% endfor %}   
             </div>
         </div>
@@ -115,15 +122,22 @@
 
         </div>
         <div class="contacts-map">
-             {% for contact in contacts %}
+            {% for contact in contacts %}
             {% if contact.title == 'карта'%}
-        <div class="map">
-        {%autoescape off%}
-         <script {{contact.annotations2 }}></script>
-            {%endautoescape off%}
-</div>
-    {% endif %}
-{% endfor %}
+            <div class="map">
+                {%autoescape off%}
+                    <script {{contact.annotations2 }}></script>
+                {%endautoescape off%}
+            </div>
+            {% endif %}
+            {% if contact.title == 'мини-карта'%}
+            <div class="mini-map">
+                {%autoescape off%}
+                    <script {{contact.annotations2 }}></script>
+                {%endautoescape off%}
+                </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
